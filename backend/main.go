@@ -157,7 +157,14 @@ func streamGemini(ctx context.Context, req ChatRequest, w http.ResponseWriter, f
 	}
 	defer client.Close()
 
-	model := client.GenerativeModel("gemini-1.5-pro-latest")
+	model := client.GenerativeModel("gemini-2.5-flash")
+
+	model.SystemInstruction = &genai.Content {
+		Parts: []genai.Part {
+			genai.Text("You are an expert Micro-Bussiness Marketing Consultant. Provide actionable, low-cost marketing strategies for small businesses.")
+		},
+	}
+
 	cs := model.StartChat()
 
 	// Populate Gemini chat history (skipping the last message which is the current prompt)

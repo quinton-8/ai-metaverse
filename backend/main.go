@@ -161,7 +161,7 @@ func streamGemini(ctx context.Context, req ChatRequest, w http.ResponseWriter, f
 
 	model.SystemInstruction = &genai.Content {
 		Parts: []genai.Part {
-			genai.Text("You are an expert Micro-Bussiness Marketing Consultant. Provide actionable, low-cost marketing strategies for small businesses.")
+			genai.Text("You are an expert Micro-Bussiness Marketing Consultant. Provide actionable, low-cost marketing strategies for small businesses."),
 		},
 	}
 
